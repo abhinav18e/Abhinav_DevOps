@@ -1,0 +1,148 @@
+<!DOCTYPE html>>
+
+<head>
+    <title> Student Details</title>
+<style>
+  table,tr,td,th{
+        border: 1px solid rgba(38, 173, 144, 0.568) ;
+    }
+
+    table{
+        margin-top: 10px;
+    }
+
+    tr{
+        height: 20px;
+    }
+
+
+    div{
+        margin: auto;
+        width: 700px;
+        height: 700px;
+        border: 1px solid rgb(226, 14, 14);
+       
+    }
+</style>
+</head>
+
+ <body>
+    <div align="left" >
+<h1 > <font color="red">Student</font><font color="Green"> Details</font> </h1> 
+<form action="" method="get" >
+
+<label for="name" id="a1" style="margin: auto;">Name :</label>
+<input type="text" name="Name" size=30px placeholder="name" maxlength="10" id="name" >
+<label for="age" id="a2" >Age:</label>
+<input type ="text" age="age" size=30px placeholder="enter your age" maxlength="10" id="age">
+<br>
+<br>
+<label id="a1" style="margin: auto;"> State :</label>
+<select id="select_state">
+    <option value="" disabled selected hidden>Choose State</option>
+<option value="maharashtra" >maharashtra</option>
+<option value="kerala">kerala</option>
+ <option value="Gujarat">Gujarat</option>
+ <option value="Haryana">Haryana</option>
+ <option value="Odisha">Odisha</option>
+<option value="uttar pradesh">uttar pradesh</option>
+</select><br><br>
+<label id="a" > Gender : </label>
+
+    <input type="radio"  name="gender" value="male"  id="male" />Male
+     <input type="radio"  name="gender" value="female" id="female" />Female<br>
+
+<br>
+<button type="button"  id="submit" onclick="addData()" >submit</button><br>
+<B><span style="margin-top: 20px;" id="avg"></span></B>
+    <br>
+</form>
+
+<table style="width: 80%" id="Table">
+<tr>
+    <th>Name</th>
+    <th>State</th>
+    <th>Gender</th>
+    <th>Age</th>
+</tr>
+</table>
+<br><br>
+
+<label id="a2" style="margin: auto;"> Choose State:</label>
+<select id="state">
+    <option value="" disabled selected hidden>Choose State</option>
+<option value="maharashtra" >maharashtra</option>
+<option value="kerala">kerala</option>
+ <option value="Gujarat">Gujarat</option>
+ <option value="Haryana">Haryana</option>
+ <option value="Odisha">Odisha</option>
+<option value="uttar pradesh">uttar pradesh</option>
+</select>
+
+<button type="button"  style="display: block; margin-top: 10px;" onclick="count()">Count</button>
+
+<span style="margin-top: 20px;" id="answer"></span>
+</div>
+
+<script>
+
+function addData(){
+var data=document.getElementById("Table");
+
+var rows =data.length;
+
+var row=data.insertRow(rows);
+
+var col1=row.insertCell(0);
+var col2=row.insertCell(1);
+var col3=row.insertCell(2);
+var col4=row.insertCell(3);
+col1.innerHTML=document.getElementById("name").value;
+col2.innerHTML=document.getElementById("select_state").value;
+
+if(document.getElementById("male").checked)
+col3.innerHTML=document.getElementById("male").value;
+
+else if(document.getElementById("female").checked)
+col3.innerHTML=document.getElementById("female").value;
+
+col4.innerHTML=document.getElementById("age").value;
+
+averageAge();
+
+}
+
+function count(){
+   
+   var data=document.getElementById("Table");
+    var row=data.rows.length;
+    var state=document.getElementById("state").value;
+    var i;
+    var count=0;
+  for(i=1;i<row;i++){
+        if(data.rows[i].cells[1].innerHTML==state){
+        data.rows[i].style.color="red";
+            count++;
+        }
+        else
+        data.rows[i].style.color="black";
+      }
+    document.getElementById("answer").innerHTML=`Total number of people from state ${state} are ${count}`;
+}
+
+function averageAge(){
+    var data=document.getElementById("Table");
+    var row=data.rows.length;
+    var i;
+    var total=0;
+    var average=0;
+    for(i=1;i<row;i++){
+       total=total +Number(data.rows[i].cells[3].innerHTML);
+      }
+      average=total/(row-1);
+    document.getElementById("avg").innerHTML=`average age is ${average}`;
+}
+averageAge();
+</script>
+</body>
+</html>
