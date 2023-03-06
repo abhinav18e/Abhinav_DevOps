@@ -1,6 +1,6 @@
-pipeline {
-    agent any   
-    stages {
+pipeline{
+   agent any   
+    stages{
         stage('Fetch Code') {
             steps {
                 git 'https://github.com/abhinav18e/Abhinav_DevOps.git'
