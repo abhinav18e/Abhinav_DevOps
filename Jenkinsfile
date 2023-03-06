@@ -15,9 +15,9 @@ pipeline {
         
         stage('Deploy to Tomcat') {
             steps {
-                bat '"C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\bin\\shutdown.bat" -port 8050'
-                bat 'copy target/devops2.war "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\"'
-                bat '"C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\bin\\startup.bat"'
+                bat '"C:\Users\abhi\Downloads\apache-tomcat-9.0.73\bin\shutdown.bat" -port 8080'
+                bat 'copy target/devops2.war "C:\\Users\\abhi\\Downloads\\apache-tomcat-9.0.73\\webapps\\"'
+                bat '"C:\Users\abhi\Downloads\apache-tomcat-9.0.73\bin\\startup.bat"'
             }
         }
     }
