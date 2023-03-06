@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Fetch Code') {
             steps {
-                git 'https://github.com/Gurudath-S/devops2.git'
+                git 'https://github.com/abhinav18e/Abhinav_DevOps.git'
             }
         }
          
